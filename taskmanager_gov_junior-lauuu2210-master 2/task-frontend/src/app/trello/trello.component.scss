@@ -1,0 +1,145 @@
+.component-container {
+  padding-left: 20px;
+  padding-top: 20px;
+  height: max-content;
+  display: flex;
+  align-items: top;
+  vertical-align: center;
+}
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 100px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.list {
+  min-height: 105px;
+  border: solid 1px #ccc;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+  align-items: center;
+}
+
+.box {
+  padding: 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
+.box:last-child {
+  border: none;
+}
+
+.cdk-drag-preview {
+  min-height: 105px;
+  height: 60px !important;
+  box-sizing: border-box;
+  max-height: 60px;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.list.cdk-drop-list-dragging .box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.task-name {
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  align-items: center;
+  font-variant-caps: all-small-caps;
+}
+
+mat-card-header {
+  margin: 5px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+mat-card-content {
+  margin: 5px;
+  width: 100%;
+  display: inline-flex;
+}
+
+.icon-container {
+  display: flex;
+  width: 100%;
+  font-variant-caps: all-small-caps;
+  justify-content: flex-end;
+}
+
+mat-chip {
+  margin: 0 2px;
+  margin-right: 10px;
+
+  .mdc-evolution-chip__text-label {
+    color: white !important;
+  }
+}
+
+.card-icon {
+  margin-left: 10px;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  text-align: center;
+  width: fit-content;
+  background-color: #bc4848;
+  border: solid 1px #ccc;
+}
+
+.Low {
+  background-color: #808080 !important;
+}
+
+.Medium {
+  background-color: #f39f18 !important;
+}
+
+.High {
+  background-color: #ca4545 !important;
+}
+
+.Let.him.cook {
+  background-color: #009b7d !important;
+}
+
+.Task {
+  background-color: #089eff !important;
+}
+
+.Epic {
+  background-color: #884299 !important;
+}
+
+.Incidence {
+  background-color: #a90910 !important;
+}
+
+.Research {
+  background-color: #009b7d !important;
+}

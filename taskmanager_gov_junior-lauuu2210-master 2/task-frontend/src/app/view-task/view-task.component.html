@@ -1,0 +1,92 @@
+<div>
+  <form [formGroup]="taskForm" (submit)="submit()">
+    <h2 mat-dialog-title></h2>
+    <div class="form">
+      <mat-dialog-content>
+        <mat-grid-list cols="2" gutterSize="24px" rowHeight="100px">
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>{{'NAME' | translate}}</mat-label>
+              <input matInput placeholder="" formControlName="name"
+                type="text"/>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>{{'DATE' | translate}}</mat-label>
+              <input
+                matInput
+                required
+                formControlName="date"
+                [matDatepicker]="picker"
+                />
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+
+
+        <mat-grid-list cols="3" gutterSize="24px" rowHeight="100px">
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>{{'TYPE' | translate}}</mat-label>
+              <mat-select formControlName="type">
+                <mat-option *ngFor="let type of types" [value]="type">
+                  {{ type }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>{{'STATUS' | translate}}</mat-label>
+              <mat-select formControlName="status">
+                <mat-option *ngFor="let state of status" [value]="state">
+                  {{ state }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>{{'PRIORITY' | translate}}</mat-label>
+              <mat-select formControlName="priority">
+                <mat-option *ngFor="let prio of priority" [value]="prio">
+                  {{ prio }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-form-field appearance="fill">
+          <mat-label>{{'DESCRIPTION' | translate}}</mat-label>
+          <textarea
+            matInput
+            placeholder=""
+            formControlName="desc"
+            type="text"
+            rows="5"
+            noresize></textarea>
+        </mat-form-field>
+      </mat-dialog-content>
+      <div class="action-buttons">
+        <mat-dialog-actions>
+          <button mat-stroked-button color="primary" type="submit"> {{'MODIFY' | translate}}
+          </button>
+        </mat-dialog-actions>
+        <mat-dialog-actions>
+          <button mat-stroked-button color="red" type="button" (click)="delete()"> {{'DELETE' | translate}}
+          </button>
+        </mat-dialog-actions>
+      </div>
+    </div>
+
+    
+  </form>
+</div>

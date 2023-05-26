@@ -1,0 +1,24 @@
+.mat-mdc-form-field {
+  min-width: 100%;
+}
+
+.form{
+  margin: 50px;
+}
+
+mat-dialog-actions {
+  place-content: center flex-end;
+  align-items: right;
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.action-buttons{
+  display: inline-flex;
+  align-items: flex-end;
+}
+
+.mat-mdc-outlined-button {
+  margin: 10px;
+}

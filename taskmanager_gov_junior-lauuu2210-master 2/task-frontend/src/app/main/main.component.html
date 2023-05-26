@@ -1,0 +1,61 @@
+<div class="main-container">
+  <mat-toolbar class="navbar" color="warn">
+    <mat-toolbar-row>
+      <button (click)="cajon.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>
+        {{'TASKS' | translate}}
+      </span>
+      <span class="spacer"></span>
+      <button mat-icon-button class="material-symbols-outlined" (click)="changeLang()">
+        <mat-icon>translate</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container class="contenido">
+    <mat-sidenav style="min-width: 300px;" #cajon mode="side" opened="false">
+      <mat-nav-list>
+        <a mat-list-item style="display: flex; align-items: center;" href='#'>
+          <mat-icon color="primary">home</mat-icon>
+          {{'VIEWTASK' | translate}}
+        </a>
+        <a mat-list-item='add-task' href="add-task">
+          <mat-icon color="accent">add</mat-icon>
+          {{'ADDTASK' | translate}}
+        </a>
+      </mat-nav-list>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'MORE' | translate}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-nav-list>
+            <a mat-list-item href='#'>
+              {{'ABOUT' | translate}}
+            </a>
+            <a mat-list-item href="/Users/kiwisinpizza/Documents/GitHub/taskmanager_gov_junior-lauuu2210/task-frontend/guia_para_la_documentacion_de_proyectos_de_software.pdf">
+              {{'HELP' | translate}}
+            </a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content-container">
+        <div class="process-detail card-height-limit layoutRow">
+          <div class="detail-container layoutColumn">
+            <div class="inside-container" cdkScrollable>
+              <div class="white-background layoutColumn">
+                <router-outlet></router-outlet>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

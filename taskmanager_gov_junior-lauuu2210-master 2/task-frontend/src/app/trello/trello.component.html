@@ -1,0 +1,109 @@
+<div class="component-container">
+  <div class="container">
+    <h2>{{'TODO' | translate}}</h2>
+
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[inProgressList]"
+      class="list"
+      (cdkDropListDropped)="drop($event,'To Do')">
+      <div class="box" *ngFor="let item of todoPage" cdkDrag>
+        <mat-card-header>
+          <a class="task-name" routerLink="/view-task/{{item.id}}">{{item.name}}</a>
+          <div class="icon-container">
+            <mat-chip [ngClass]="item.priority">{{item.priority | translate}}</mat-chip>
+            <mat-chip [ngClass]="item.type">{{item.type | translate}}</mat-chip>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-icon class="material-icons-outlined">event</mat-icon>
+          <span>{{item.date|date:'dd/MM/yyyy'}}</span>
+        </mat-card-content>
+      </div>
+    </div>
+    <mat-paginator #paginator
+      class="paginator"
+      (page)="handlePageEvent($event, 'To Do')"
+      [length]="lengthTodoPage"
+      [pageSize]="pageSize"
+      [showFirstLastButtons]="showFirstLastButtons"
+      [hidePageSize]="hidePageSize"
+      [pageIndex]="pageTodoIndex">
+    </mat-paginator>
+  </div>
+
+  <div class="container">
+    <h2>{{'IN PROGRESS' | translate}}</h2>
+
+    <div
+      cdkDropList
+      #inProgressList="cdkDropList"
+      [cdkDropListData]="inProgress"
+      [cdkDropListConnectedTo]="[todoList, doneList]"
+      class="list"
+      (cdkDropListDropped)="drop($event, 'In Progress')">
+      <div class="box" *ngFor="let item of progressPage" cdkDrag>
+        <mat-card-header>
+          <a class="task-name" routerLink="/view-task/{{item.id}}">{{item.name}}</a>
+          <div class="icon-container">
+            <mat-chip [ngClass]="item.priority">{{item.priority | translate}}</mat-chip>
+            <mat-chip [ngClass]="item.type">{{item.type | translate}}</mat-chip>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-icon class="material-icons-outlined">event</mat-icon>
+          <span>{{item.date|date:'dd/MM/yyyy'}}</span>
+        </mat-card-content>
+      </div>
+    </div>
+    <mat-paginator #paginator
+      class="paginator"
+      (page)="handlePageEvent($event, 'In Progress')"
+      [length]="lengthProgressPage"
+      [pageSize]="pageSize"
+      [showFirstLastButtons]="showFirstLastButtons"
+      [hidePageSize]="hidePageSize"
+      [pageIndex]="pageProgressIndex">
+    </mat-paginator>
+  </div>
+
+  <div class="container">
+    <h2>{{'DONE' | translate}}</h2>
+
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[inProgressList]"
+      class="list"
+      (cdkDropListDropped)="drop($event, 'Done')">
+
+      <div class="box" *ngFor="let item of donePage" cdkDrag>
+        <mat-card-header>
+          <a class="task-name" routerLink="/view-task/{{item.id}}">{{item.name}}</a>
+          <div class="icon-container">
+            <mat-chip [ngClass]="item.priority">{{item.priority | translate}}</mat-chip>
+            <mat-chip [ngClass]="item.type">{{item.type | translate}}</mat-chip>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-icon class="material-icons-outlined">event</mat-icon>
+          <span>{{item.date|date:'dd/MM/yyyy'}}</span>
+        </mat-card-content>
+      </div>
+
+    </div>
+    <mat-paginator #paginator
+      class="paginator"
+      (page)="handlePageEvent($event, 'Done')"
+      [length]="lengthDonePage"
+      [pageSize]="pageSize"
+      [showFirstLastButtons]="showFirstLastButtons"
+      [hidePageSize]="hidePageSize"
+      [pageIndex]="pageDoneIndex">
+    </mat-paginator>
+  </div>
+
+</div>
